@@ -5,10 +5,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.platform.engine.support.hierarchical.SingleTestExecutor;
 
 public class RadioTest {
+    Radio stat = new Radio();
+    Radio vol = new Radio();
 
     @Test
     public void shouldSetStation() {
-        Radio stat = new Radio();
+
         stat.setCurrentStation(5);
         int expected = 5;
         int actual = stat.getCurrentStation();
@@ -17,7 +19,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolume() {
-        Radio vol = new Radio();
+
         vol.setCurrentVolume(25);
         int expected = 25;
         int actual = vol.getCurrentVolume();
@@ -26,7 +28,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetStationAboveMax() {
-        Radio stat = new Radio();
+
         stat.setCurrentStation(10);
         int expected = 0;
         int actual = stat.getCurrentStation();
@@ -35,7 +37,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetStationBelowMin() {
-        Radio stat = new Radio();
+
         stat.setCurrentStation(-1);
         int expected = 0;
         int actual = stat.getCurrentStation();
@@ -44,7 +46,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolumeAboveMax() {
-        Radio vol = new Radio();
+
         vol.setCurrentVolume(101);
         int expected = 0;
         int actual = vol.getCurrentVolume();
@@ -53,7 +55,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolumeBelowMin() {
-        Radio vol = new Radio();
+
         vol.setCurrentVolume(-1);
         int expected = 0;
         int actual = vol.getCurrentVolume();
@@ -62,7 +64,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetStationNext() {
-        Radio stat = new Radio();
+
         stat.setCurrentStation(8);
         stat.setNextStation();
         int expected = 9;
@@ -72,7 +74,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetStationPrev() {
-        Radio stat = new Radio();
+
         stat.setCurrentStation(9);
         stat.setPrevStation();
         int expected = 8;
@@ -82,7 +84,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetStationNext9() {
-        Radio stat = new Radio();
+
         stat.setCurrentStation(9);
         stat.setNextStation();
         int expected = 0;
@@ -92,7 +94,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetStationPrev0() {
-        Radio stat = new Radio();
+
         stat.setCurrentStation(0);
         stat.setPrevStation();
         int expected = 9;
@@ -102,7 +104,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolumeIncrease() {
-        Radio vol = new Radio();
+
         vol.setCurrentVolume(99);
         vol.setIncreaseVolume();
         int expected = 100;
@@ -112,7 +114,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolumeDecrease() {
-        Radio vol = new Radio();
+
         vol.setCurrentVolume(100);
         vol.setDecreaseVolume();
         int expected = 99;
@@ -122,7 +124,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolumeIncrease100() {
-        Radio vol = new Radio();
+
         vol.setCurrentVolume(100);
         vol.setIncreaseVolume();
         int expected = 100;
@@ -132,7 +134,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolumeDecrease0() {
-        Radio vol = new Radio();
+
         vol.setCurrentVolume(0);
         vol.setDecreaseVolume();
         int expected = 0;

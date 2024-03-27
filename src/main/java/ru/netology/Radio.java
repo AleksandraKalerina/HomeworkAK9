@@ -1,8 +1,20 @@
 package ru.netology;
 
 public class Radio {
+    private int maxStation = 9;
+    private int minStation = 0;
+    private int maxVolume = 100;
+    private int minVolume = 0;
     private int currentStation;
     private int currentVolume;
+
+    public Radio(int countStation) {
+        maxStation = countStation - 1;
+    }
+
+    public Radio() {
+        int maxStation;
+    }
 
     int getCurrentStation() {
         return currentStation;
@@ -13,43 +25,43 @@ public class Radio {
     }
 
     public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation < 0) {
+        if (newCurrentStation < minStation) {
             return;
         }
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > maxStation) {
             return;
         }
         currentStation = newCurrentStation;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
+        if (newCurrentVolume < minVolume) {
             return;
         }
-        if (newCurrentVolume > 100) {
+        if (newCurrentVolume > maxVolume) {
             return;
         }
         currentVolume = newCurrentVolume;
     }
 
     public void setNextStation() {
-        if (currentStation == 9) {
-            currentStation = 0;
+        if (currentStation == maxStation) {
+            currentStation = minStation;
         } else {
             currentStation++;
         }
     }
 
     public void setPrevStation() {
-        if (currentStation == 0) {
-            currentStation = 9;
+        if (currentStation == minStation) {
+            currentStation = maxStation;
         } else {
             currentStation--;
         }
     }
 
     public void setIncreaseVolume() {
-        if (currentVolume == 100) {
+        if (currentVolume == maxVolume) {
             return;
         } else {
             currentVolume++;
@@ -57,7 +69,7 @@ public class Radio {
     }
 
     public void setDecreaseVolume() {
-        if (currentVolume == 0) {
+        if (currentVolume == minVolume) {
             return;
         } else {
             currentVolume--;

@@ -141,4 +141,35 @@ public class RadioTest {
         int actual = vol.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void countStation() {
+        Radio count = new Radio(10);
+        stat.setCurrentStation(8);
+        int expected = 8;
+        int actual = stat.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldSetStation10Prev() {
+
+        Radio count = new Radio(10);
+        stat.setPrevStation();
+        int expected = 9;
+        int actual = stat.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetStation10Next() {
+
+        Radio count = new Radio(10);
+        stat.setNextStation();
+        int expected = 1;
+        int actual = stat.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
 }
+
